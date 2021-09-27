@@ -17,7 +17,10 @@ window.onload = function () {
 
     const copyBtnPressed = function() {
         navigator.clipboard.writeText(getGameName());
-        numberIn.value = numberIn.valueAsNumber + 1;
+
+        // handle leading zeroes
+        const nextNumber = numberIn.valueAsNumber + 1
+        numberIn.value = `${nextNumber}`.padStart(numberIn.value.trim().length, "0")
         renderCopyBtn();
     };
 
